@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "FB Marketplace Auto Location",
+    "version": "1.0",
+    "description": "Automatically fills location in Facebook Marketplace listings",
+    "permissions": ["storage", "activeTab", "scripting", "tabs"],
+    "host_permissions": ["*://www.facebook.com/marketplace/*"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Set Auto Location"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://www.facebook.com/marketplace/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
